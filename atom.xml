@@ -4,7 +4,7 @@
   <title><![CDATA[My Development Blog]]></title>
   <link href="http://kirang89.github.com/atom.xml" rel="self"/>
   <link href="http://kirang89.github.com/"/>
-  <updated>2012-10-03T01:58:38+05:30</updated>
+  <updated>2012-10-03T02:10:09+05:30</updated>
   <id>http://kirang89.github.com/</id>
   <author>
     <name><![CDATA[Kiran Gangadharan]]></name>
@@ -12,5 +12,14 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hello World]]></title>
+    <link href="http://kirang89.github.com/blog/2012/10/03/hello-world/"/>
+    <updated>2012-10-03T02:04:00+05:30</updated>
+    <id>http://kirang89.github.com/blog/2012/10/03/hello-world</id>
+    <content type="html"><![CDATA[<p>This is my first post, so thought of starting up with the most widely used programming lingo: Hello World. In this blog, I&#8217;ll share my hacks,ideas and even mistakes :)</p>
+]]></content>
+  </entry>
   
 </feed>
