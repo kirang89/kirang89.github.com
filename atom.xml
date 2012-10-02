@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Development Blog]]></title>
+  <link href="http://kirang89.github.com/atom.xml" rel="self"/>
+  <link href="http://kirang89.github.com/"/>
+  <updated>2012-10-03T02:53:23+05:30</updated>
+  <id>http://kirang89.github.com/</id>
+  <author>
+    <name><![CDATA[Kiran Gangadharan]]></name>
+    <email><![CDATA[kiran.daredevil@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Download a csv in your Play! framework application]]></title>
+    <link href="http://kirang89.github.com/blog/2012/10/03/download-a-csv-in-your-play-framework-application/"/>
+    <updated>2012-10-03T02:35:00+05:30</updated>
+    <id>http://kirang89.github.com/blog/2012/10/03/download-a-csv-in-your-play-framework-application</id>
+    <content type="html"><![CDATA[<p>In this post, I&#8217;ll share a simple way to download CSV files in Play Framework. This is especially useful, if you want to export out some reports or analytics data for offline use. So let’s get started.</p>
+
+<ol>
+<li>First create a new Play! application (I’m skipping all this for the sake of sticking to the point)</li>
+<li>Have a seperate controller/method which handles the generation of CSV files.</li>
+<li>In that controller add the following code:</li>
+</ol>
+
+
+<figure class='code'><figcaption><span>CSV download snippet </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>response.contentType = "text/csv";
+</span><span class='line'>
+</span><span class='line'>response.setHeader("Content-Disposition", "attachment;filename="" + &lt;filename> +".csv" + """);
+</span><span class='line'>
+</span><span class='line'>response.writeChunk(&lt;header>); 
+</span><span class='line'>
+</span><span class='line'>response.writeChunk("\n"); 
+</span><span class='line'>
+</span><span class='line'>response.writeChunk(&lt;content>);</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong><u>Note</u>:</strong> Remember to separate your content with a “<strong>,</strong>” so that it will be columnised in the file</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hello World]]></title>
+    <link href="http://kirang89.github.com/blog/2012/10/03/hello-world/"/>
+    <updated>2012-10-03T02:04:00+05:30</updated>
+    <id>http://kirang89.github.com/blog/2012/10/03/hello-world</id>
+    <content type="html"><![CDATA[<p>This is my first post, so thought of starting up with the most widely used programming lingo: Hello World. In this blog, I&#8217;ll share my hacks,ideas and even mistakes :)</p>
+]]></content>
+  </entry>
+  
+</feed>

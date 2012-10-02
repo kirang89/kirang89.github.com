@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: CSV - My Development Blog</title>
+  <title>Download a csv in your Play! framework application - My Development Blog</title>
   <meta name="author" content="Kiran Gangadharan">
 
   
-  <meta name="description" content="Category: CSV">
+  <meta name="description" content="In this post, I&#8217;ll share a simple way to download CSV files in Play Framework. This is especially useful, if you want to export out some &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kirang89.github.comblog/categories/csv/">
+  <link rel="canonical" href="http://kirang89.github.com/blog/2012/10/03/download-a-csv-in-your-play-framework-application/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,35 +63,116 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: CSV</h1>
+    
+      <h1 class="entry-title">Download a Csv in Your Play! Framework Application</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-03T02:35:00+05:30" pubdate data-updated="true">Oct 3<span>rd</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>In this post, I&#8217;ll share a simple way to download CSV files in Play Framework. This is especially useful, if you want to export out some reports or analytics data for offline use. So let’s get started.</p>
 
-  
-  <h2>2012</h2>
-
-<article>
-  
-<h1><a href="/blog/2012/10/03/dwonloading-a-csv-file-in-play/">Dwonloading a CSV file in Play!</a></h1>
-<time datetime="2012-10-03T02:12:00+05:30" pubdate><span class='month'>Oct</span> <span class='day'>03</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/csv/'>CSV</a>, <a class='category' href='/blog/categories/play-framework/'>Play Framework</a></span>
-</footer>
+<ol>
+<li>First create a new Play! application (I’m skipping all this for the sake of sticking to the point)</li>
+<li>Have a seperate controller/method which handles the generation of CSV files.</li>
+<li>In that controller add the following code:</li>
+</ol>
 
 
-</article>
+<figure class='code'><figcaption><span>CSV download snippet </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>response.contentType = "text/csv";
+</span><span class='line'>
+</span><span class='line'>response.setHeader("Content-Disposition", "attachment;filename="" + &lt;filename> +".csv" + """);
+</span><span class='line'>
+</span><span class='line'>response.writeChunk(&lt;header>); 
+</span><span class='line'>
+</span><span class='line'>response.writeChunk("\n"); 
+</span><span class='line'>
+</span><span class='line'>response.writeChunk(&lt;content>);</span></code></pre></td></tr></table></div></figure>
 
+
+<p><strong><u>Note</u>:</strong> Remember to separate your content with a “<strong>,</strong>” so that it will be columnised in the file</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Kiran Gangadharan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-03T02:35:00+05:30" pubdate data-updated="true">Oct 3<span>rd</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/play-framework/'>Play Framework</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kirang89.github.com/blog/2012/10/03/download-a-csv-in-your-play-framework-application/" data-via="kirang89" data-counturl="http://kirang89.github.com/blog/2012/10/03/download-a-csv-in-your-play-framework-application/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/10/03/hello-world/" title="Previous Post: Hello World">&laquo; Hello World</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
@@ -103,7 +184,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/10/03/dwonloading-a-csv-file-in-play/">Dwonloading a CSV file in Play!</a>
+        <a href="/blog/2012/10/03/download-a-csv-in-your-play-framework-application/">Download a csv in your Play! framework application</a>
       </li>
     
       <li class="post">
