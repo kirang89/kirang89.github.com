@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Development Blog</title>
+  <title>Uploading your jar to Maven Central - My Development Blog</title>
   <meta name="author" content="Kiran Gangadharan">
 
   
@@ -19,7 +19,7 @@ After &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kirang89.github.com/">
+  <link rel="canonical" href="http://kirang89.github.com/blog/2013/01/20/uploading-your-jar-to-maven-central/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,15 +63,12 @@ After &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/01/20/uploading-your-jar-to-maven-central/">Uploading Your Jar to Maven Central</a></h1>
+      <h1 class="entry-title">Uploading Your Jar to Maven Central</h1>
     
     
       <p class="meta">
@@ -94,7 +91,7 @@ After &hellip;">
   </header>
 
 
-  <div class="entry-content"><h2>Public Repo Creation</h2>
+<div class="entry-content"><h2>Public Repo Creation</h2>
 
 <ul>
 <li><p>Create a Sonatype Repo which can be used for the deployment of the project jars. For this, follow <strong>Step 2</strong> and <strong>3</strong> from <a href="https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide#SonatypeOSSMavenRepositoryUsageGuide-2.Signup">here</a>.</p></li>
@@ -471,123 +468,16 @@ After &hellip;">
 
 <p>That&#8217;s it. You&#8217;re done ! Go and chillout :)</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/30/jvm-profiling-and-what-the-terms-mean/">JVM Profiling Disclosures</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">Kiran Gangadharan</span></span>
 
-<time datetime="2012-11-30T22:46:00+04:00" pubdate data-updated="true">Nov 30<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Well, I&#8217;ve never actually given importance to the term &#8221;<em>profiling</em>&#8221; till a few days ago. The real deal was that I was just too lazy to actually run a profiler and then to try interpret the stats and hopefully find the bottleneck in the code. So to avoid all this hassle, I tried to be careful while writing code to make sure I don&#8217;t leave any open doors for memory leaks or poor CPU utilization.</p>
-
-<p>But a few days back, I stumbled into a performance issue in my code at work, leaving both me and my project lead puzzled about the culprit. Atlast desperation lead us to setup YourKit profiling in our server to have a peak under the hood of the JVM. And in the process, we happened to learn some new terms and functionalities of the profiler and I must say that I&#8217;m slowly beginning to like the idea of profiling code. I was really surprised at what we could learn about our code just by looking at the profiler stats. So here below, I&#8217;ve merged in some of our learnings along the whole process.</p>
-
-<h3>JVM Memory Structure</h3>
-
-<p> It&#8217;s important to first understand the structure of the JVM memory itself. Simply put:</p>
-
-<p><em>JVM Memory = Heap Memory + Non-Heap Memory + Other (JVM code itself, JVM internal structures, loaded profiler agent code and data, etc.)</em></p>
-
-<h3>Profiling Terms</h3>
-
-<p>Next, lets look at a few terms you need to know in order to make some sense out of all those weird graphs.</p>
-
-<ul>
-<li><em>Heap Memory</em> - Stores Java objects</li>
-<li><em>Non-Heap memory</em> -  Stores per-class structures and other meta-data</li>
-<li><em>Stack Memory</em> - Java only stores primitives on the stack. Stack values only exist within the scope in which they were created. Java objects are created on the heap, and only references (which in turn are primitives) are passed around on the stack.</li>
-<li><em>Allocated Memory</em> - All memory that is allocated by the JVM</li>
-<li><em>Used Memory</em> - Amount of memory that is actually in use</li>
-<li><em>Eden</em> - Objects that are newly created reside here</li>
-<li><em>S1(Survivor Space 1) or S2</em> - All objects that survive a GC cycle go here</li>
-<li><em>Young Generation</em> - Eden + S1 + S2 section of Heap memory</li>
-<li><p><em>Old Gen Space</em> - Objects that survive a fixed number of GC cycles go here</p>
-
-<p> Ex: Singletons, Cached Objects and other application global data</p></li>
-<li><em>Shallow Size(object)</em> -  Amount of allocated memory to store the object</li>
-<li><em>Retained Size(object)</em> - Shallow size of object under consideration  + Shallow size of other objects that can be directly or indirectly accessed from this object</li>
-</ul>
-
-
-<h3>Things to watch out for while profiling</h3>
-
-<ul>
-<li>In a typical application there will be less variation inside the Old Gen space.</li>
-<li>If the Old Gen space grows linearly with time even after the GC cycle, it would lead to a <code>OutOfMemoryError</code>. This occurs mainly due to JVM memory space depletion (Java Heap, Native Heap, etc.). This might be a indication of a memory leak inside the code.</li>
-</ul>
-
-
-<p>The <code>OutOfMemoryError</code> mainly occurs due to the following:</p>
-
-<ul>
-<li>Lack of understanding of current JVM utilization</li>
-<li>Inappropriate JVM GC policy used. (Monitor JVM GC closely. Enable <code>verbose</code> GC option and analyse the data)</li>
-<li>Lack of performance and load testing</li>
-</ul>
-
-
-<p>From the above, you probably would understand most of the important stats when you look into your profiler output next time. Now comes the important question</p>
-
-<blockquote><p>How do I generally find/prevent bottlenecks in my code ?</p></blockquote>
-
-<p>Well, I&#8217;ve tried to provide a few ideas below:</p>
-
-<ul>
-<li>Understand your application&#8217;s memory footprint</li>
-<li>Provide Connection Timeouts for any sort of communication API that you use.</li>
-<li>Cache data whereever possible to avoid more I/O operations on disk</li>
-<li>Monitor your threads closely to make sure there aren&#8217;t any bottlenecks or, well Deadlocks (<em>gulp</em>)</li>
-<li>Monitor Network Latencies. They are the hidden culprits of many performance problems.</li>
-<li>Implement application logging. This will help you to internally monitor the performance issues and hotspots in your code.</li>
-<li>Use Client JVM for development and Server JVM in production. Most people ignore this change. Even I did so. That was mainly because I never knew the difference between the JVM&#8217;s. The Server JVM does heavy optimization of your code to increase performance and reduce memory and CPU footprints, in production.</li>
-<li>Increase JVM Heap by specifying <code>-Xms</code> and <code>-Xmx</code> while running your application</li>
-<li>Analyse what&#8217;s happening under the hood in the heap, using <code>jmap</code> and <code>jhat</code> (Haven&#8217;t really tried this out)</li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/03/download-a-csv-in-your-play-framework-application/">Download a Csv in Your Play! Framework Application</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -599,93 +489,40 @@ After &hellip;">
   
 
 
-<time datetime="2012-10-03T02:35:00+04:00" pubdate data-updated="true">Oct 3<span>rd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In this post, I&#8217;ll share a simple way to download CSV files in Play Framework. This is especially useful, if you want to export out some reports or analytics data for offline use. So let’s get started.</p>
-
-<ol>
-<li>First create a new Play! application (I’m skipping all this for the sake of sticking to the point)</li>
-<li>Have a seperate controller/method which handles the generation of CSV files.</li>
-<li>In that controller add the following code:</li>
-</ol>
-
-
-<figure class='code'><figcaption><span>CSV download snippet </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>response.contentType = "text/csv";
-</span><span class='line'>
-</span><span class='line'>response.setHeader("Content-Disposition", "attachment;filename="" + &lt;filename> +".csv" + """);
-</span><span class='line'>
-</span><span class='line'>response.writeChunk(&lt;header>); 
-</span><span class='line'>
-</span><span class='line'>response.writeChunk("\n"); 
-</span><span class='line'>
-</span><span class='line'>response.writeChunk(&lt;content>);</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong><u>Note</u>:</strong> Remember to separate your content with a “<strong>,</strong>” so that it will be columnised in the file</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<time datetime="2013-01-20T19:23:00+04:00" pubdate data-updated="true">Jan 20<span>th</span>, 2013</time>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/03/hello-world/">Hello World</a></h1>
-    
-    
-      <p class="meta">
-        
 
-
-
-
-
-
-
-
+<span class="categories">
   
+    <a class='category' href='/blog/categories/central-jar-upload-repository/'>central,jar,upload,repository</a>, <a class='category' href='/blog/categories/maven-maven/'>maven,maven</a>
+  
+</span>
 
 
-<time datetime="2012-10-03T02:04:00+04:00" pubdate data-updated="true">Oct 3<span>rd</span>, 2012</time>
-        
-      </p>
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>This is my first post, so thought of starting up with the most widely used programming lingo: Hello World. In this blog, I&#8217;ll share my hacks,ideas and even mistakes :)</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kirang89.github.com/blog/2013/01/20/uploading-your-jar-to-maven-central/" data-via="kirang89" data-counturl="http://kirang89.github.com/blog/2013/01/20/uploading-your-jar-to-maven-central/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/11/30/jvm-profiling-and-what-the-terms-mean/" title="Previous Post: JVM Profiling Disclosures">&laquo; JVM Profiling Disclosures</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -714,7 +551,7 @@ After &hellip;">
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/kirang89">@kirang89</a> on GitHub
@@ -744,7 +581,7 @@ After &hellip;">
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -763,6 +600,7 @@ After &hellip;">
 
   
 </aside>
+
 
     </div>
   </div>

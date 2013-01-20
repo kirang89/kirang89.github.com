@@ -2,26 +2,30 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://kirang89.github.com/blog/2012/10/03/hello-world/</loc>
-        <lastmod>2012-10-03T02:09:12+05:30</lastmod>
+        <lastmod>2013-01-20T17:33:19+04:00</lastmod>
     </url>
     <url>
         <loc>
             http://kirang89.github.com/blog/2012/10/03/download-a-csv-in-your-play-framework-application/
         </loc>
-        <lastmod>2012-10-03T02:53:22+05:30</lastmod>
+        <lastmod>2013-01-20T17:33:19+04:00</lastmod>
     </url>
     <url>
         <loc>
             http://kirang89.github.com/blog/2012/11/30/jvm-profiling-and-what-the-terms-mean/
         </loc>
-        <lastmod>2012-11-30T23:57:03+05:30</lastmod>
+        <lastmod>2013-01-20T17:33:19+04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kirang89.github.com/blog/2013/01/20/uploading-your-jar-to-maven-central/</loc>
+        <lastmod>2013-01-20T20:29:39+04:00</lastmod>
     </url>
     <url>
         <loc>http://kirang89.github.com/blog/archives/</loc>
-        <lastmod>2012-11-30T23:57:03+05:30</lastmod>
+        <lastmod>2013-01-20T20:29:39+04:00</lastmod>
     </url>
     <url>
         <loc>http://kirang89.github.com/</loc>
-        <lastmod>2012-11-30T23:57:03+05:30</lastmod>
+        <lastmod>2013-01-20T20:29:39+04:00</lastmod>
     </url>
 </urlset>

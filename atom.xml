@@ -4,7 +4,7 @@
   <title><![CDATA[My Development Blog]]></title>
   <link href="http://kirang89.github.com/atom.xml" rel="self"/>
   <link href="http://kirang89.github.com/"/>
-  <updated>2012-12-01T00:08:13+05:30</updated>
+  <updated>2013-01-20T20:30:35+04:00</updated>
   <id>http://kirang89.github.com/</id>
   <author>
     <name><![CDATA[Kiran Gangadharan]]></name>
@@ -14,9 +14,393 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Uploading your jar to Maven Central]]></title>
+    <link href="http://kirang89.github.com/blog/2013/01/20/uploading-your-jar-to-maven-central/"/>
+    <updated>2013-01-20T19:23:00+04:00</updated>
+    <id>http://kirang89.github.com/blog/2013/01/20/uploading-your-jar-to-maven-central</id>
+    <content type="html"><![CDATA[<h2>Public Repo Creation</h2>
+
+<ul>
+<li><p>Create a Sonatype Repo which can be used for the deployment of the project jars. For this, follow <strong>Step 2</strong> and <strong>3</strong> from <a href="https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide#SonatypeOSSMavenRepositoryUsageGuide-2.Signup">here</a>.</p></li>
+<li><p>After u create the JIRA ticket, the guys responsible will get back to you with all the relevant details including the repositories to which you can deploy</p></li>
+<li><p>Now we have a snapshot and release repo ready. So let&#8217;s ready our project for deployment.</p></li>
+</ul>
+
+
+<h2>Changes in your POM file</h2>
+
+<ul>
+<li>Make sure you have all these elements in your POM file</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>POM elements </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;modelVersion> 
+</span><span class='line'>  &lt;groupId>
+</span><span class='line'>  &lt;artifactId>
+</span><span class='line'>  &lt;version>
+</span><span class='line'>  &lt;packaging>
+</span><span class='line'>  &lt;name>
+</span><span class='line'>  &lt;description>
+</span><span class='line'>  &lt;url>
+</span><span class='line'>  &lt;licenses>
+</span><span class='line'>  &lt;scm>&lt;url>
+</span><span class='line'>  &lt;scm>&lt;connection>
+</span><span class='line'>  &lt;developers></span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><p>Make sure that you append <strong>-SNAPSHOT</strong> to <code>&lt;version&gt;</code>. Don&#8217;t worry, when your project jar is being deployed to the release repo, the &#8220;-SNAPSHOT&#8221; string will be removed.</p></li>
+<li><p>Add the following xml snippets in your POM</p></li>
+</ul>
+
+
+<figure class='code'><figcaption><span>Add these under <build> </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;plugins>
+</span><span class='line'>  &lt;plugin>
+</span><span class='line'>      &lt;groupId>org.apache.maven.plugins&lt;/groupId>
+</span><span class='line'>      &lt;artifactId>maven-compiler-plugin&lt;/artifactId>
+</span><span class='line'>      &lt;version>2.3.2&lt;/version>
+</span><span class='line'>      &lt;configuration>
+</span><span class='line'>          &lt;source>${java.version}&lt;/source>
+</span><span class='line'>          &lt;target>${java.version}&lt;/target>
+</span><span class='line'>      &lt;/configuration>
+</span><span class='line'>  &lt;/plugin>
+</span><span class='line'>  &lt;plugin>
+</span><span class='line'>      &lt;artifactId>maven-assembly-plugin&lt;/artifactId>
+</span><span class='line'>      &lt;version>2.3&lt;/version>
+</span><span class='line'>      &lt;configuration>
+</span><span class='line'>          &lt;descriptorRefs>
+</span><span class='line'>              &lt;descriptorRef>jar-with-dependencies&lt;/descriptorRef>
+</span><span class='line'>          &lt;/descriptorRefs>
+</span><span class='line'>      &lt;/configuration>
+</span><span class='line'>      &lt;executions>
+</span><span class='line'>          &lt;execution>
+</span><span class='line'>              &lt;phase>package&lt;/phase>
+</span><span class='line'>              &lt;goals>
+</span><span class='line'>                  &lt;goal>single&lt;/goal>
+</span><span class='line'>              &lt;/goals>
+</span><span class='line'>          &lt;/execution>
+</span><span class='line'>      &lt;/executions>
+</span><span class='line'>  &lt;/plugin>
+</span><span class='line'>  &lt;plugin>
+</span><span class='line'>      &lt;groupId>org.apache.maven.plugins&lt;/groupId>
+</span><span class='line'>      &lt;artifactId>maven-source-plugin&lt;/artifactId>
+</span><span class='line'>      &lt;version>2.1.2&lt;/version>
+</span><span class='line'>      &lt;executions>
+</span><span class='line'>          &lt;execution>
+</span><span class='line'>              &lt;id>attach-sources&lt;/id>
+</span><span class='line'>              &lt;goals>
+</span><span class='line'>                  &lt;goal>jar&lt;/goal>
+</span><span class='line'>              &lt;/goals>
+</span><span class='line'>          &lt;/execution>
+</span><span class='line'>      &lt;/executions>
+</span><span class='line'>  &lt;/plugin>
+</span><span class='line'>  &lt;plugin>
+</span><span class='line'>      &lt;groupId>org.apache.maven.plugins&lt;/groupId>
+</span><span class='line'>      &lt;artifactId>maven-javadoc-plugin&lt;/artifactId>
+</span><span class='line'>      &lt;configuration>
+</span><span class='line'>          &lt;quiet>true&lt;/quiet>
+</span><span class='line'>          &lt;nonavbar>true&lt;/nonavbar>
+</span><span class='line'>          &lt;notree>true&lt;/notree>
+</span><span class='line'>          &lt;nocomment>true&lt;/nocomment>
+</span><span class='line'>          &lt;nohelp>true&lt;/nohelp>
+</span><span class='line'>
+</span><span class='line'>      &lt;/configuration>
+</span><span class='line'>      &lt;executions>
+</span><span class='line'>          &lt;execution>
+</span><span class='line'>              &lt;id>attach-javadocs&lt;/id>
+</span><span class='line'>              &lt;goals>
+</span><span class='line'>                  &lt;goal>jar&lt;/goal>
+</span><span class='line'>              &lt;/goals>
+</span><span class='line'>          &lt;/execution>
+</span><span class='line'>      &lt;/executions>
+</span><span class='line'>  &lt;/plugin>
+</span><span class='line'>  &lt;plugin>
+</span><span class='line'>      &lt;groupId>org.apache.maven.plugins&lt;/groupId>
+</span><span class='line'>      &lt;artifactId>maven-gpg-plugin&lt;/artifactId>
+</span><span class='line'>      &lt;executions>
+</span><span class='line'>          &lt;execution>
+</span><span class='line'>              &lt;id>sign-artifacts&lt;/id>
+</span><span class='line'>              &lt;phase>verify&lt;/phase>
+</span><span class='line'>              &lt;goals>
+</span><span class='line'>                  &lt;goal>sign&lt;/goal>
+</span><span class='line'>              &lt;/goals>
+</span><span class='line'>          &lt;/execution>
+</span><span class='line'>      &lt;/executions>
+</span><span class='line'>  &lt;/plugin>
+</span><span class='line'>&lt;/plugins></span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Add the distribution info like this:</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;distributionManagement>
+</span><span class='line'>  &lt;!-- Repository for snapshots -->
+</span><span class='line'>  &lt;repository>
+</span><span class='line'>      &lt;id>sonatype-nexus-snapshots&lt;/id>
+</span><span class='line'>      &lt;url>https://oss.sonatype.org/content/repositories/snapshots&lt;/url>
+</span><span class='line'>  &lt;/repository>
+</span><span class='line'>  &lt;!-- Repository for releases -->
+</span><span class='line'>  &lt;repository>
+</span><span class='line'>      &lt;id>nexus-releases&lt;/id>
+</span><span class='line'>      &lt;name>Nexus Release Repository&lt;/name>
+</span><span class='line'>      &lt;url>http://oss.sonatype.org/service/local/staging/deploy/maven2/&lt;/url>
+</span><span class='line'>  &lt;/repository>
+</span><span class='line'>&lt;/distributionManagement></span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Add the Sonatype parent info:</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;parent>
+</span><span class='line'>  &lt;groupId>org.sonatype.oss&lt;/groupId>
+</span><span class='line'>  &lt;artifactId>oss-parent&lt;/artifactId>
+</span><span class='line'>  &lt;version>7&lt;/version>
+</span><span class='line'>&lt;/parent></span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Create a file <code>settings.xml</code> inside your local Maven repository folder (which is usually <code>~/.m2/</code> ), and add the following xml snippet</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;settings>
+</span><span class='line'>  &lt;servers>
+</span><span class='line'>      &lt;server>
+</span><span class='line'>          &lt;id>sonatype-nexus-snapshots&lt;/id>
+</span><span class='line'>          &lt;username>your username&lt;/username>
+</span><span class='line'>          &lt;password>your password&lt;/password>
+</span><span class='line'>      &lt;/server>
+</span><span class='line'>      &lt;server>
+</span><span class='line'>          &lt;id>nexus-releases&lt;/id>
+</span><span class='line'>          &lt;username>your username&lt;/username>
+</span><span class='line'>          &lt;password>your password&lt;/password>
+</span><span class='line'>      &lt;/server>
+</span><span class='line'>  &lt;/servers>
+</span><span class='line'>  &lt;profiles>
+</span><span class='line'>      &lt;profile>
+</span><span class='line'>          &lt;id>gpg&lt;/id>
+</span><span class='line'>          &lt;properties>
+</span><span class='line'>              &lt;gpg.passphrase>your passphrase&lt;/gpg.passphrase>
+</span><span class='line'>              &lt;gpg.keyname>your pgp key&lt;/gpg.keyname>
+</span><span class='line'>          &lt;/properties>
+</span><span class='line'>      &lt;/profile>
+</span><span class='line'>  &lt;/profiles>
+</span><span class='line'>&lt;/settings></span></code></pre></td></tr></table></div></figure>
+
+
+<p>The username and password refers to the one you used for creating the jira account earlier.</p>
+
+<h2>Using Public key to sign artifacts</h2>
+
+<ul>
+<li><p>You can sign your project jars using pgp signatures by following the instructions <a href="https://docs.sonatype.org/display/Repository/How+To+Generate+PGP+Signatures+With+Maven">here</a></p></li>
+<li><p>Make sure to upload your key to the public keyserver as mentioned in the link above.</p></li>
+<li><p>The <code>maven-gpg-plugin</code> plugin above will help to sign all your project jars with a pgp signature.</p></li>
+</ul>
+
+
+<h2>Upload to Repository</h2>
+
+<ul>
+<li><p>Before you proceed, make sure to push all the changes made locally to your SCM. <strong>This is a very important step</strong>.</p></li>
+<li><p>Create a <a href="https://help.github.com/articles/generating-ssh-keys">public SSH key in github</a>, if you don&#8217;t have one. If not created, you will face the following error while uploading</p></li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Permission denied (publickey). error.</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>To upload your project to the snapshot repository simply run</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mvn clean deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>To upload your project for staging before the actual release, run the commands below</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//Cleanup before releasing 
+</span><span class='line'> mvn release:clean
+</span><span class='line'>
+</span><span class='line'>//Preparing for the release
+</span><span class='line'> mvn release:prepare</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>If your project was prepared successfully, use the following command to upload the jars to the staging repository.</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mvn release:perform</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If everything ran well, you have now successfully deployed your project artifacts to the sonatype staging repository.</p>
+
+<h2>Promote staged project to Maven repo</h2>
+
+<ul>
+<li>Login to <a href="https://oss.sonatype.org/">Sonatype Repository browser</a></li>
+<li>Follow the instructions given <a href="https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide#SonatypeOSSMavenRepositoryUsageGuide-8a.ReleaseIt">here</a></li>
+<li>Before you release your jars into Maven Central, make sure to download and test them locally.</li>
+<li><strong>Do not release your artifacts without ensuring that they work as expected</strong></li>
+</ul>
+
+
+<p>Once your staged release has been promoted and synced to the Central Repo, do not forget to close the JIRA ticket you created in the beginning.</p>
+
+<p>That&#8217;s it. You&#8217;re done ! Go and chillout :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[JVM Profiling Disclosures]]></title>
     <link href="http://kirang89.github.com/blog/2012/11/30/jvm-profiling-and-what-the-terms-mean/"/>
-    <updated>2012-11-30T22:46:00+05:30</updated>
+    <updated>2012-11-30T22:46:00+04:00</updated>
     <id>http://kirang89.github.com/blog/2012/11/30/jvm-profiling-and-what-the-terms-mean</id>
     <content type="html"><![CDATA[<p>Well, I&#8217;ve never actually given importance to the term &#8221;<em>profiling</em>&#8221; till a few days ago. The real deal was that I was just too lazy to actually run a profiler and then to try interpret the stats and hopefully find the bottleneck in the code. So to avoid all this hassle, I tried to be careful while writing code to make sure I don&#8217;t leave any open doors for memory leaks or poor CPU utilization.</p>
 
@@ -90,7 +474,7 @@
   <entry>
     <title type="html"><![CDATA[Download a csv in your Play! framework application]]></title>
     <link href="http://kirang89.github.com/blog/2012/10/03/download-a-csv-in-your-play-framework-application/"/>
-    <updated>2012-10-03T02:35:00+05:30</updated>
+    <updated>2012-10-03T02:35:00+04:00</updated>
     <id>http://kirang89.github.com/blog/2012/10/03/download-a-csv-in-your-play-framework-application</id>
     <content type="html"><![CDATA[<p>In this post, I&#8217;ll share a simple way to download CSV files in Play Framework. This is especially useful, if you want to export out some reports or analytics data for offline use. So let’s get started.</p>
 
@@ -129,7 +513,7 @@
   <entry>
     <title type="html"><![CDATA[Hello World]]></title>
     <link href="http://kirang89.github.com/blog/2012/10/03/hello-world/"/>
-    <updated>2012-10-03T02:04:00+05:30</updated>
+    <updated>2012-10-03T02:04:00+04:00</updated>
     <id>http://kirang89.github.com/blog/2012/10/03/hello-world</id>
     <content type="html"><![CDATA[<p>This is my first post, so thought of starting up with the most widely used programming lingo: Hello World. In this blog, I&#8217;ll share my hacks,ideas and even mistakes :)</p>
 ]]></content>
