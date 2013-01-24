@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: python,pylibmc,memcached,ubuntu | My Development Blog]]></title>
+  <link href="http://kirang89.github.com/blog/categories/python-pylibmc-memcached-ubuntu/atom.xml" rel="self"/>
+  <link href="http://kirang89.github.com/"/>
+  <updated>2013-01-24T16:07:23+04:00</updated>
+  <id>http://kirang89.github.com/</id>
+  <author>
+    <name><![CDATA[Kiran Gangadharan]]></name>
+    <email><![CDATA[kiran.daredevil@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Installing Pylibmc in Ubuntu]]></title>
+    <link href="http://kirang89.github.com/blog/2013/01/24/installing-pylibmc-in-ubuntu/"/>
+    <updated>2013-01-24T15:54:00+04:00</updated>
+    <id>http://kirang89.github.com/blog/2013/01/24/installing-pylibmc-in-ubuntu</id>
+    <content type="html"><![CDATA[<p>Before you install Pylibmc on your machine, there are a few dependencies that you need to take care of, so as to ensure a successful installation.</p>
+
+<h2>Install python-dev</h2>
+
+<pre><code>sudo apt-get install python-dev</code></pre>
+
+
+<h2>Install libmemcached</h2>
+
+<pre><code>sudo apt-get install libmemcached-dev</code></pre>
+
+
+<p>Now you can successfully install <code>pylibmc</code> using <code>pip</code></p>
+
+<h2>Install pylibmc</h2>
+
+<pre><code>sudo pip install pylibmc</code></pre>
+
+]]></content>
+  </entry>
+  
+</feed>
