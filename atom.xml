@@ -4,7 +4,7 @@
   <title><![CDATA[My Development Blog]]></title>
   <link href="http://kirang89.github.com/atom.xml" rel="self"/>
   <link href="http://kirang89.github.com/"/>
-  <updated>2013-01-24T16:07:23+04:00</updated>
+  <updated>2013-03-04T18:51:16+05:30</updated>
   <id>http://kirang89.github.com/</id>
   <author>
     <name><![CDATA[Kiran Gangadharan]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Installing Pylibmc in Ubuntu]]></title>
     <link href="http://kirang89.github.com/blog/2013/01/24/installing-pylibmc-in-ubuntu/"/>
-    <updated>2013-01-24T15:54:00+04:00</updated>
+    <updated>2013-01-24T15:54:00+05:30</updated>
     <id>http://kirang89.github.com/blog/2013/01/24/installing-pylibmc-in-ubuntu</id>
     <content type="html"><![CDATA[<p>Before you install Pylibmc on your machine, there are a few dependencies that you need to take care of, so as to ensure a successful installation.</p>
 
@@ -42,7 +42,7 @@
   <entry>
     <title type="html"><![CDATA[Uploading your jar to Maven Central]]></title>
     <link href="http://kirang89.github.com/blog/2013/01/20/uploading-your-jar-to-maven-central/"/>
-    <updated>2013-01-20T19:23:00+04:00</updated>
+    <updated>2013-01-20T19:23:00+05:30</updated>
     <id>http://kirang89.github.com/blog/2013/01/20/uploading-your-jar-to-maven-central</id>
     <content type="html"><![CDATA[<h2>Public Repo Creation</h2>
 
@@ -426,7 +426,7 @@
   <entry>
     <title type="html"><![CDATA[JVM Profiling Disclosures]]></title>
     <link href="http://kirang89.github.com/blog/2012/11/30/jvm-profiling-and-what-the-terms-mean/"/>
-    <updated>2012-11-30T22:46:00+04:00</updated>
+    <updated>2012-11-30T22:46:00+05:30</updated>
     <id>http://kirang89.github.com/blog/2012/11/30/jvm-profiling-and-what-the-terms-mean</id>
     <content type="html"><![CDATA[<p>Well, I&#8217;ve never actually given importance to the term &#8221;<em>profiling</em>&#8221; till a few days ago. The real deal was that I was just too lazy to actually run a profiler and then to try interpret the stats and hopefully find the bottleneck in the code. So to avoid all this hassle, I tried to be careful while writing code to make sure I don&#8217;t leave any open doors for memory leaks or poor CPU utilization.</p>
 
@@ -500,7 +500,7 @@
   <entry>
     <title type="html"><![CDATA[Download a csv in your Play! framework application]]></title>
     <link href="http://kirang89.github.com/blog/2012/10/03/download-a-csv-in-your-play-framework-application/"/>
-    <updated>2012-10-03T02:35:00+04:00</updated>
+    <updated>2012-10-03T02:35:00+05:30</updated>
     <id>http://kirang89.github.com/blog/2012/10/03/download-a-csv-in-your-play-framework-application</id>
     <content type="html"><![CDATA[<p>In this post, I&#8217;ll share a simple way to download CSV files in Play Framework. This is especially useful, if you want to export out some reports or analytics data for offline use. So let’s get started.</p>
 
@@ -539,7 +539,7 @@
   <entry>
     <title type="html"><![CDATA[Hello World]]></title>
     <link href="http://kirang89.github.com/blog/2012/10/03/hello-world/"/>
-    <updated>2012-10-03T02:04:00+04:00</updated>
+    <updated>2012-10-03T02:04:00+05:30</updated>
     <id>http://kirang89.github.com/blog/2012/10/03/hello-world</id>
     <content type="html"><![CDATA[<p>This is my first post, so thought of starting up with the most widely used programming lingo: Hello World. In this blog, I&#8217;ll share my hacks,ideas and even mistakes :)</p>
 ]]></content>

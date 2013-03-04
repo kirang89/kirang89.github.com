@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python,pylibmc,memcached,ubuntu | My Development Blog]]></title>
   <link href="http://kirang89.github.com/blog/categories/python-pylibmc-memcached-ubuntu/atom.xml" rel="self"/>
   <link href="http://kirang89.github.com/"/>
-  <updated>2013-01-24T16:07:23+04:00</updated>
+  <updated>2013-03-04T18:51:16+05:30</updated>
   <id>http://kirang89.github.com/</id>
   <author>
     <name><![CDATA[Kiran Gangadharan]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Installing Pylibmc in Ubuntu]]></title>
     <link href="http://kirang89.github.com/blog/2013/01/24/installing-pylibmc-in-ubuntu/"/>
-    <updated>2013-01-24T15:54:00+04:00</updated>
+    <updated>2013-01-24T15:54:00+05:30</updated>
     <id>http://kirang89.github.com/blog/2013/01/24/installing-pylibmc-in-ubuntu</id>
     <content type="html"><![CDATA[<p>Before you install Pylibmc on your machine, there are a few dependencies that you need to take care of, so as to ensure a successful installation.</p>
 

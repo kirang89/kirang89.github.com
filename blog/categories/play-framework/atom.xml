@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Play Framework | My Development Blog]]></title>
   <link href="http://kirang89.github.com/blog/categories/play-framework/atom.xml" rel="self"/>
   <link href="http://kirang89.github.com/"/>
-  <updated>2013-01-24T16:07:23+04:00</updated>
+  <updated>2013-03-04T18:51:16+05:30</updated>
   <id>http://kirang89.github.com/</id>
   <author>
     <name><![CDATA[Kiran Gangadharan]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Download a csv in your Play! framework application]]></title>
     <link href="http://kirang89.github.com/blog/2012/10/03/download-a-csv-in-your-play-framework-application/"/>
-    <updated>2012-10-03T02:35:00+04:00</updated>
+    <updated>2012-10-03T02:35:00+05:30</updated>
     <id>http://kirang89.github.com/blog/2012/10/03/download-a-csv-in-your-play-framework-application</id>
     <content type="html"><![CDATA[<p>In this post, I'll share a simple way to download CSV files in Play Framework. This is especially useful, if you want to export out some reports or analytics data for offline use. So let’s get started.</p>
 

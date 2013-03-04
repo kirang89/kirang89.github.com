@@ -4,7 +4,7 @@
   <title><![CDATA[Category: java | My Development Blog]]></title>
   <link href="http://kirang89.github.com/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://kirang89.github.com/"/>
-  <updated>2013-01-24T16:07:23+04:00</updated>
+  <updated>2013-03-04T18:51:16+05:30</updated>
   <id>http://kirang89.github.com/</id>
   <author>
     <name><![CDATA[Kiran Gangadharan]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[JVM Profiling Disclosures]]></title>
     <link href="http://kirang89.github.com/blog/2012/11/30/jvm-profiling-and-what-the-terms-mean/"/>
-    <updated>2012-11-30T22:46:00+04:00</updated>
+    <updated>2012-11-30T22:46:00+05:30</updated>
     <id>http://kirang89.github.com/blog/2012/11/30/jvm-profiling-and-what-the-terms-mean</id>
     <content type="html"><![CDATA[<p>Well, I've never actually given importance to the term "<em>profiling</em>" till a few days ago. The real deal was that I was just too lazy to actually run a profiler and then to try interpret the stats and hopefully find the bottleneck in the code. So to avoid all this hassle, I tried to be careful while writing code to make sure I don't leave any open doors for memory leaks or poor CPU utilization.</p>
 

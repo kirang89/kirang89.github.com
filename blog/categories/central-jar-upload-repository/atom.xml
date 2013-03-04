@@ -4,7 +4,7 @@
   <title><![CDATA[Category: central,jar,upload,repository | My Development Blog]]></title>
   <link href="http://kirang89.github.com/blog/categories/central-jar-upload-repository/atom.xml" rel="self"/>
   <link href="http://kirang89.github.com/"/>
-  <updated>2013-01-24T16:07:23+04:00</updated>
+  <updated>2013-03-04T18:51:16+05:30</updated>
   <id>http://kirang89.github.com/</id>
   <author>
     <name><![CDATA[Kiran Gangadharan]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Uploading your jar to Maven Central]]></title>
     <link href="http://kirang89.github.com/blog/2013/01/20/uploading-your-jar-to-maven-central/"/>
-    <updated>2013-01-20T19:23:00+04:00</updated>
+    <updated>2013-01-20T19:23:00+05:30</updated>
     <id>http://kirang89.github.com/blog/2013/01/20/uploading-your-jar-to-maven-central</id>
     <content type="html"><![CDATA[<h2>Public Repo Creation</h2>
 
