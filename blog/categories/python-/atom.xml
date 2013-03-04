@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: python, | My Development Blog]]></title>
+  <link href="http://kirang89.github.com/blog/categories/python-/atom.xml" rel="self"/>
+  <link href="http://kirang89.github.com/"/>
+  <updated>2013-03-04T19:45:13+05:30</updated>
+  <id>http://kirang89.github.com/</id>
+  <author>
+    <name><![CDATA[Kiran Gangadharan]]></name>
+    <email><![CDATA[kiran.daredevil@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Type and Object in Python]]></title>
+    <link href="http://kirang89.github.com/blog/2013/03/04/type-and-object-in-python/"/>
+    <updated>2013-03-04T19:17:00+05:30</updated>
+    <id>http://kirang89.github.com/blog/2013/03/04/type-and-object-in-python</id>
+    <content type="html"><![CDATA[<p>Recently I stumbled across an article talking about the importance of understanding <code>type</code> and <code>object</code> in Python, so thought of writing a small post on it.</p>
+
+<p>Looking indepth, one may get the impression that this is more of a chicked-egg problem, but I'll give an overall view of this.</p>
+
+<pre><code>- An object is basically an instance of type
+- type is an instance of type itself
+- object is the subclass of all other objects
+- a type is an instance of object itself
+</code></pre>
+
+<p>So in a way, you have only two objects in Python, types and non-types.</p>
+
+<p><em><strong>Note</strong>: <code>type</code> can also be called <code>class</code> from Python >= 2.3</em></p>
+
+<p>Well there you go. It wasn't confusing now, was it ? :)</p>
+]]></content>
+  </entry>
+  
+</feed>
