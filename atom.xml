@@ -4,7 +4,7 @@
   <title><![CDATA[My Development Blog]]></title>
   <link href="http://kirang89.github.com/atom.xml" rel="self"/>
   <link href="http://kirang89.github.com/"/>
-  <updated>2013-03-04T19:45:13+05:30</updated>
+  <updated>2013-04-14T00:25:28+05:30</updated>
   <id>http://kirang89.github.com/</id>
   <author>
     <name><![CDATA[Kiran Gangadharan]]></name>
@@ -12,6 +12,114 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[My Sublime Workflow]]></title>
+    <link href="http://kirang89.github.com/blog/2013/04/13/my-sublime-workflow/"/>
+    <updated>2013-04-13T21:43:00+05:30</updated>
+    <id>http://kirang89.github.com/blog/2013/04/13/my-sublime-workflow</id>
+    <content type="html"><![CDATA[<p>The settings I use for <a href="http://www.sublimetext.com/">Sublime Text 2</a>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;color_scheme&quot;</span><span class="p">:</span> <span class="s2">&quot;Packages/User/Tomorrow-Night.tmTheme&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;detect_slow_plugins&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;draw_white_space&quot;</span><span class="p">:</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;find_selected_text&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;fold_buttons&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;folder_exclude_patterns&quot;</span><span class="p">:</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;.svn&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;.git&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;.hg&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;CVS&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;_build&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;dist&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;build&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;site&quot;</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;font_face&quot;</span><span class="p">:</span> <span class="s2">&quot;Ubuntu Mono&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;font_options&quot;</span><span class="p">:</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;subpixel_antialias&quot;</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;font_size&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;highlight_line&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;ignored_packages&quot;</span><span class="p">:</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;Vintage&quot;</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;rulers&quot;</span><span class="p">:</span>
+</span><span class='line'>    <span class="p">[</span>
+</span><span class='line'>        <span class="mi">80</span><span class="p">,</span>
+</span><span class='line'>        <span class="mi">100</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;soda_classic_tabs&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;Soda Dark.sublime-theme&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;translate_tabs_to_spaces&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;trim_trailing_white_space_on_save&quot;</span><span class="p">:</span> <span class="kc">true</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Plugins</h3>
+
+<ul>
+<li>Emmet-Sublime</li>
+<li>SublimeLinter</li>
+<li>SublimeREPL</li>
+<li>SideBarEnhancements</li>
+<li>Markdown Preview</li>
+<li>Git</li>
+</ul>
+
+
+<h3>Others</h3>
+
+<ul>
+<li><a href="https://github.com/chriskempson/tomorrow-theme">Tomorrow-Night color scheme</a></li>
+<li><a href="https://github.com/buymeasoda/soda-theme/">Soda Dark theme</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Type and Object in Python]]></title>
