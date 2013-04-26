@@ -4,7 +4,7 @@
   <title><![CDATA[My Development Blog]]></title>
   <link href="http://kirang89.github.com/atom.xml" rel="self"/>
   <link href="http://kirang89.github.com/"/>
-  <updated>2013-04-14T00:25:28+05:30</updated>
+  <updated>2013-04-26T20:13:23+05:30</updated>
   <id>http://kirang89.github.com/</id>
   <author>
     <name><![CDATA[Kiran Gangadharan]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A Cookbook for writing idiomatic Python]]></title>
+    <link href="http://kirang89.github.com/blog/2013/04/26/a-cookbook-for-writing-idiomatic-python/"/>
+    <updated>2013-04-26T19:21:00+05:30</updated>
+    <id>http://kirang89.github.com/blog/2013/04/26/a-cookbook-for-writing-idiomatic-python</id>
+    <content type="html"><![CDATA[<p><img src="http://kirang89.github.com/images/wipbook.jpg" alt="Writing Idiomatic Python for Python 2.7.3" /></p>
+
+<p>Recently I stumbled upon the book <a href="http://www.jeffknupp.com/writing-idiomatic-python-ebook/">Writing Idiomatic Python</a> by <a href="http://www.jeffknupp.com/">Jeff Knupp</a>, and I wanted to grab a copy of it. It wasn&#8217;t something I could pay for, so I emailed Jeff asking him if he could give me a free copy, and he was kind enough to agree. Well, I just finished the book and I really loved it !</p>
+
+<p>The book is short and sweet and conveys powerful idioms in a clear and concise way. I have read quite a lot about what is good and bad in Python and how to write good code in it, and yet I was able to learn some new things out of this book. That being said, if you don&#8217;t know the basics of Python, then this is not the book for you.</p>
+
+<p>Well, I&#8217;m glad that I&#8217;m subscribed to the updates of this book. Oh yea, and whether you&#8217;re a fanboy or an expert at Python, you&#8217;ve gotta read this book atleast once.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My Sublime Workflow]]></title>

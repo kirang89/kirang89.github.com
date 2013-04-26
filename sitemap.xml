@@ -33,11 +33,17 @@
         <lastmod>2013-04-13T23:46:24+05:30</lastmod>
     </url>
     <url>
+        <loc>
+            http://kirang89.github.com/blog/2013/04/26/a-cookbook-for-writing-idiomatic-python/
+        </loc>
+        <lastmod>2013-04-26T20:13:22+05:30</lastmod>
+    </url>
+    <url>
         <loc>http://kirang89.github.com/blog/archives/</loc>
-        <lastmod>2013-04-13T23:46:24+05:30</lastmod>
+        <lastmod>2013-04-26T20:13:22+05:30</lastmod>
     </url>
     <url>
         <loc>http://kirang89.github.com/</loc>
-        <lastmod>2013-04-13T23:46:24+05:30</lastmod>
+        <lastmod>2013-04-26T20:13:22+05:30</lastmod>
     </url>
 </urlset>
